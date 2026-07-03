@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a2540'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='18' font-weight='bold' fill='%2300e5a8' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us — Rezyumer Technologies</title>
+    <meta name="description" content="Learn about Rezyumer Technologies — our mission, values, leadership team, and the story behind a fast-growing AI-first engineering studio." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/lucide-static@latest/font/lucide.css" />
+    <style>
+      :root{
+        --bg:#060b1a; --bg-2:#0a1428; --surface:#0e1b33; --surface-2:#13234a;
+        --border:rgba(255,255,255,.08); --text:#e8eefc; --muted:#9fb0d4;
+        --primary:#00e5a8; --primary-2:#00b4ff; --accent:#ff7a45;
+        --warning:#ffd166; --error:#ff5470; --success:#00e5a8;
+      }
+      *{margin:0;padding:0;box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+      h1,h2,h3,h4{font-family:'Sora','Inter',sans-serif;line-height:1.15}
+      a{color:inherit;text-decoration:none}
+      img{max-width:100%;display:block}
+      .container{width:min(1200px,92%);margin-inline:auto}
+      .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:600;padding:6px 14px;border:1px solid rgba(0,229,168,.25);border-radius:999px;background:rgba(0,229,168,.07)}
+      .section{padding:110px 0;position:relative}
+      .section-head{text-align:center;max-width:720px;margin:0 auto 64px}
+      .section-head h2{font-size:clamp(1.9rem,4vw,2.9rem);margin:20px 0 16px;font-weight:700}
+      .section-head p{color:var(--muted);font-size:1.05rem}
+      .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:10px;font-weight:600;font-size:.96rem;transition:.25s ease;cursor:pointer;border:none;font-family:inherit}
+      .btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#03121b;box-shadow:0 10px 30px -10px rgba(0,229,168,.5)}
+      .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px -10px rgba(0,229,168,.7)}
+      .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+      .btn-ghost:hover{border-color:var(--primary);color:var(--primary)}
+
+      header.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.3s ease;padding:18px 0}
+      header.nav.scrolled{background:rgba(6,11,26,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:12px 0}
+      .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+      .logo{display:flex;align-items:center;gap:10px;font-family:'Sora';font-weight:700;font-size:1.25rem}
+      .logo .mark{width:38px;height:38px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#03121b;font-weight:800;box-shadow:0 6px 20px -6px rgba(0,229,168,.6)}
+      .logo small{display:block;font-size:.62rem;letter-spacing:.25em;color:var(--muted);font-weight:500;text-transform:uppercase}
+      .nav-menu{display:flex;gap:8px;align-items:center}
+      .nav-menu a{padding:9px 16px;border-radius:8px;font-size:.92rem;color:var(--muted);font-weight:500;transition:.2s}
+      .nav-menu a:hover{color:var(--text);background:rgba(255,255,255,.04)}
+      .nav-menu a.active{color:var(--primary)}
+      .nav-cta{display:flex;gap:10px;align-items:center}
+      .burger{display:none;background:none;border:none;color:var(--text);font-size:1.6rem;cursor:pointer}
+
+      .page-hero{position:relative;padding:170px 0 90px;overflow:hidden}
+      .page-hero .bg{position:absolute;inset:0;z-index:-2;background:radial-gradient(900px 600px at 85% 10%,rgba(0,229,168,.14),transparent 60%),radial-gradient(700px 500px at 10% 90%,rgba(0,180,255,.12),transparent 60%),var(--bg)}
+      .page-hero .grid{position:absolute;inset:0;z-index:-1;opacity:.4;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 60% at 50% 40%,#000,transparent)}
+      .page-hero h1{font-size:clamp(2.3rem,5.4vw,3.6rem);font-weight:700;letter-spacing:-.02em;margin:22px 0 18px}
+      .page-hero h1 .grad{background:linear-gradient(135deg,var(--primary),var(--primary-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+      .page-hero p.lead{color:var(--muted);font-size:1.12rem;max-width:620px}
+      .breadcrumb{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:.85rem;margin-top:24px}
+      .breadcrumb a:hover{color:var(--primary)}
+
+      .story{padding:100px 0}
+      .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+      .story-grid .img-wrap{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--border);box-shadow:0 30px 80px -30px rgba(0,0,0,.7)}
+      .story-grid .img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 6s ease}
+      .story-grid .img-wrap:hover img{transform:scale(1.08)}
+      .story-grid .img-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,229,168,.12),transparent 60%)}
+      .story-copy h2{font-size:clamp(1.8rem,4vw,2.6rem);margin:18px 0 18px}
+      .story-copy p{color:var(--muted);margin-bottom:16px}
+      .story-points{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:24px}
+      .story-points li{display:flex;gap:12px;align-items:flex-start}
+      .story-points i{color:var(--primary);font-size:1.3rem;flex:0 0 auto;margin-top:2px}
+      .story-points strong{font-family:'Sora';display:block;margin-bottom:2px}
+
+      .values{background:var(--bg-2)}
+      .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+      .val-card{padding:36px 28px;border-radius:18px;background:var(--surface);border:1px solid var(--border);transition:.35s}
+      .val-card:hover{transform:translateY(-8px);border-color:rgba(0,229,168,.3)}
+      .val-card .ico{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;background:rgba(0,229,168,.1);color:var(--primary);font-size:1.6rem;margin-bottom:22px}
+      .val-card h3{font-size:1.2rem;margin-bottom:10px}
+      .val-card p{color:var(--muted);font-size:.95rem}
+
+      .stats{padding:70px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-2)}
+      .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+      .stat .num{font-family:'Sora';font-weight:700;font-size:clamp(2.2rem,5vw,3.2rem);color:var(--primary);line-height:1}
+      .stat .lbl{color:var(--muted);margin-top:8px;font-size:.95rem}
+      .stat .icon{font-size:1.6rem;color:var(--primary-2);margin-bottom:10px;display:block}
+
+      .team .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+      .member{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:30px;text-align:center;transition:.35s}
+      .member:hover{transform:translateY(-8px);border-color:rgba(0,229,168,.3)}
+      .member img{width:110px;height:110px;border-radius:50%;object-fit:cover;margin:0 auto 16px;border:3px solid rgba(0,229,168,.3)}
+      .member h4{font-size:1.1rem;margin-bottom:4px}
+      .member .role{color:var(--primary);font-size:.85rem;font-weight:600;margin-bottom:10px}
+      .member p{color:var(--muted);font-size:.85rem}
+      .member .socials{display:flex;justify-content:center;gap:10px;margin-top:14px}
+      .member .socials a{width:34px;height:34px;border-radius:8px;display:grid;place-items:center;border:1px solid var(--border);color:var(--muted);transition:.3s}
+      .member .socials a:hover{background:var(--primary);color:#03121b;border-color:var(--primary)}
+
+      .cta-band{padding:90px 0;text-align:center;position:relative;overflow:hidden}
+      .cta-band .bg{position:absolute;inset:0;z-index:-1;background:radial-gradient(600px 400px at 50% 0%,rgba(0,229,168,.15),transparent 60%),var(--bg-2)}
+      .cta-band h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:16px}
+      .cta-band p{color:var(--muted);max-width:560px;margin:0 auto 30px;font-size:1.05rem}
+
+      footer{background:var(--bg);border-top:1px solid var(--border);padding:70px 0 28px}
+      .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px}
+      .foot-about p{color:var(--muted);font-size:.92rem;margin:16px 0;max-width:320px}
+      .foot-social{display:flex;gap:12px}
+      .foot-social a{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;border:1px solid var(--border);color:var(--muted);transition:.3s;font-size:1rem}
+      .foot-social a:hover{background:var(--primary);color:#03121b;border-color:var(--primary);transform:translateY(-3px)}
+      .foot-col h5{font-family:'Sora';font-size:1rem;margin-bottom:18px}
+      .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+      .foot-col a{color:var(--muted);font-size:.92rem;transition:.2s}
+      .foot-col a:hover{color:var(--primary);padding-left:4px}
+      .foot-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:.85rem}
+
+      .reveal{opacity:0;transform:translateY(40px);transition:.8s cubic-bezier(.2,.7,.2,1)}
+      .reveal.in{opacity:1;transform:none}
+      [data-delay="1"]{transition-delay:.1s} [data-delay="2"]{transition-delay:.2s} [data-delay="3"]{transition-delay:.3s} [data-delay="4"]{transition-delay:.4s}
+
+      @media(max-width:980px){
+        .story-grid{grid-template-columns:1fr;gap:40px}
+        .values-grid{grid-template-columns:repeat(2,1fr)}
+        .stats-grid{grid-template-columns:repeat(2,1fr);gap:40px 20px}
+        .team .team-grid{grid-template-columns:repeat(2,1fr)}
+        .foot-grid{grid-template-columns:1fr 1fr;gap:32px}
+      }
+      @media(max-width:680px){
+        .nav-menu{position:fixed;top:64px;left:0;right:0;flex-direction:column;align-items:stretch;background:rgba(6,11,26,.97);backdrop-filter:blur(14px);padding:20px;gap:4px;border-bottom:1px solid var(--border);transform:translateY(-130%);transition:.4s}
+        .nav-menu.open{transform:none} .nav-menu a{padding:14px 16px;font-size:1rem}
+        .nav-cta .btn-ghost{display:none} .burger{display:block}
+        .section{padding:80px 0} .values-grid,.team .team-grid{grid-template-columns:1fr}
+        .foot-grid{grid-template-columns:1fr}
+      }
+    </style>
+  </head>
+  <body>
+    <header class="nav" id="nav">
+      <div class="container nav-inner">
+        <a href="index.html" class="logo"><span class="mark">R</span><span>Rezyumer<small>Technologies</small></span></a>
+        <nav class="nav-menu" id="navMenu">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="aboutus.html" class="active">About Us</a>
+          <a href="contactus.html">Contact Us</a>
+        </nav>
+        <div class="nav-cta">
+          <a href="contactus.html" class="btn btn-primary">Get a Quote</a>
+          <button class="burger" id="burger" aria-label="Menu">&#9776;</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="page-hero">
+      <div class="bg"></div><div class="grid"></div>
+      <div class="container reveal">
+        <span class="eyebrow"><i class="lucide lucide-users"></i> Who We Are</span>
+        <h1>An AI-first studio building the <span class="grad">next digital backbone</span></h1>
+        <p class="lead">Rezyumer Technologies is a team of engineers, designers, and researchers obsessed with turning complex problems into elegant, scalable software that customers love and businesses depend on.</p>
+        <div class="breadcrumb"><a href="index.html">Home</a> <span>/</span> <span>About Us</span></div>
+      </div>
+    </section>
+
+    <section class="section story">
+      <div class="container">
+        <div class="story-grid">
+          <div class="img-wrap reveal">
+            <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&w=1100" alt="Rezyumer team collaborating" />
+          </div>
+          <div class="story-copy reveal" data-delay="1">
+            <span class="eyebrow"><i class="lucide lucide-flag"></i> Our Story</span>
+            <h2>From a two-person idea to a global engineering partner</h2>
+            <p>Founded in 2013, Rezyumer Technologies started as a boutique consultancy with a simple conviction: that world-class engineering shouldn't be reserved for tech giants. We believed any ambitious organization deserved software built to the same standards of performance, security, and elegance as the platforms used by billions.</p>
+            <p>Over a decade later, that conviction has carried us across 35 countries, 240 delivered projects, and countless lines of production code — but the spirit remains the same. We stay small enough to care about every detail, yet large enough to take on mission-critical systems at scale.</p>
+            <ul class="story-points">
+              <li><i class="lucide lucide-target"></i><div><strong>Our Mission</strong>Empower organizations to outpace change through resilient, intelligent technology.</div></li>
+              <li><i class="lucide lucide-eye"></i><div><strong>Our Vision</strong>A world where every business can operate with the engineering depth of a tech leader.</div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section values">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow"><i class="lucide lucide-heart"></i> What Drives Us</span>
+          <h2>Our core values</h2>
+          <p>Four principles that shape how we hire, how we build, and how we partner — every single day.</p>
+        </div>
+        <div class="values-grid">
+          <div class="val-card reveal">
+            <div class="ico"><i class="lucide lucide-gem"></i></div>
+            <h3>Craftsmanship</h3>
+            <p>We treat every line of code as a craft — readable, tested, and built to last. Quality is never an afterthought; it's the starting point.</p>
+          </div>
+          <div class="val-card reveal" data-delay="1">
+            <div class="ico"><i class="lucide lucide-handshake"></i></div>
+            <h3>Radical Transparency</h3>
+            <p>No black boxes. Our clients see sprint burndowns, code reviews, and architecture decisions in real time. Trust is earned through visibility.</p>
+          </div>
+          <div class="val-card reveal" data-delay="2">
+            <div class="ico"><i class="lucide lucide-zap"></i></div>
+            <h3>Bias for Action</h3>
+            <p>We ship in small, shippable increments and learn fast. Momentum beats perfection, and a deployed prototype teaches more than a flawless spec.</p>
+          </div>
+          <div class="val-card reveal">
+            <div class="ico"><i class="lucide lucide-shield"></i></div>
+            <h3>Ownership</h3>
+            <p>We own outcomes, not outputs. When we take on a problem, we stay accountable to the business result — not just the deliverable.</p>
+          </div>
+          <div class="val-card reveal" data-delay="1">
+            <div class="ico"><i class="lucide lucide-lightbulb"></i></div>
+            <h3>Curiosity</h3>
+            <p>We hire lifelong learners. The tools change every year; the instinct to ask "why" and "what if" is what keeps us ahead.</p>
+          </div>
+          <div class="val-card reveal" data-delay="2">
+            <div class="ico"><i class="lucide lucide-globe"></i></div>
+            <h3>Inclusive Impact</h3>
+            <p>Diverse teams build better products. We invest in talent across emerging markets and design for users of every ability and background.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="container stats-grid">
+        <div class="stat reveal"><i class="lucide lucide-rocket icon"></i><div class="num" data-count="12">0</div><div class="lbl">Years of Innovation</div></div>
+        <div class="stat reveal" data-delay="1"><i class="lucide lucide-users icon"></i><div class="num" data-count="180">0</div><div class="lbl">Happy Clients</div></div>
+        <div class="stat reveal" data-delay="2"><i class="lucide lucide-globe icon"></i><div class="num" data-count="35">0</div><div class="lbl">Countries Served</div></div>
+        <div class="stat reveal" data-delay="3"><i class="lucide lucide-users-round icon"></i><div class="num" data-count="320">0</div><div class="lbl">Team Members</div></div>
+      </div>
+    </section>
+
+    <section class="section team">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow"><i class="lucide lucide-star"></i> Leadership</span>
+          <h2>Meet the people behind Rezyumer</h2>
+          <p>Seasoned operators who've shipped products at startups and enterprises alike — now united by a shared standard of engineering excellence.</p>
+        </div>
+        <div class="team-grid">
+          <div class="member reveal">
+            <img src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&w=200" alt="Kwame Mensah" />
+            <h4>Kwame Mensah</h4>
+            <div class="role">Co-Founder &amp; CEO</div>
+            <p>Ex-platform lead. 18 years scaling engineering orgs across fintech and healthtech.</p>
+            <div class="socials"><a href="#"><i class="lucide lucide-linkedin"></i></a><a href="#"><i class="lucide lucide-twitter"></i></a></div>
+          </div>
+          <div class="member reveal" data-delay="1">
+            <img src="https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&w=200" alt="Lena Fischer" />
+            <h4>Lena Fischer</h4>
+            <div class="role">Co-Founder &amp; CTO</div>
+            <p>Cloud architect and ML researcher. Previously built distributed systems at scale.</p>
+            <div class="socials"><a href="#"><i class="lucide lucide-linkedin"></i></a><a href="#"><i class="lucide lucide-github"></i></a></div>
+          </div>
+          <div class="member reveal" data-delay="2">
+            <img src="https://images.pexels.com/photos/3727464/pexels-photo-3727464.jpeg?auto=compress&w=200" alt="Priya Raman" />
+            <h4>Priya Raman</h4>
+            <div class="role">VP of Engineering</div>
+            <p>Leads delivery across six practices. Champion of agile rigor and SRE culture.</p>
+            <div class="socials"><a href="#"><i class="lucide lucide-linkedin"></i></a><a href="#"><i class="lucide lucide-twitter"></i></a></div>
+          </div>
+          <div class="member reveal" data-delay="3">
+            <img src="https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&w=200" alt="David Okonkwo" />
+            <h4>David Okonkwo</h4>
+            <div class="role">Head of Design</div>
+            <p>Design systems and product UX. Believes interfaces should feel inevitable.</p>
+            <div class="socials"><a href="#"><i class="lucide lucide-linkedin"></i></a><a href="#"><i class="lucide lucide-twitter"></i></a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="bg"></div>
+      <div class="container reveal">
+        <span class="eyebrow"><i class="lucide lucide-handshake"></i> Join us</span>
+        <h2 style="margin-top:20px">Let's build the future, together</h2>
+        <p>Whether you're a partner with an ambitious problem or a talented engineer looking for your next chapter — we'd love to talk.</p>
+        <a href="contactus.html" class="btn btn-primary">Get in Touch <i class="lucide lucide-arrow-right"></i></a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="foot-grid">
+          <div class="foot-about">
+            <a href="index.html" class="logo"><span class="mark">R</span><span>Rezyumer<small>Technologies</small></span></a>
+            <p>We engineer intelligent software, cloud platforms, and AI systems that help ambitious organizations scale with confidence.</p>
+            <div class="foot-social">
+              <a href="#" aria-label="LinkedIn"><i class="lucide lucide-linkedin"></i></a>
+              <a href="#" aria-label="Twitter"><i class="lucide lucide-twitter"></i></a>
+              <a href="#" aria-label="GitHub"><i class="lucide lucide-github"></i></a>
+              <a href="#" aria-label="YouTube"><i class="lucide lucide-youtube"></i></a>
+            </div>
+          </div>
+          <div class="foot-col"><h5>Company</h5><ul><li><a href="aboutus.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="index.html#stories">Case Studies</a></li><li><a href="contactus.html">Careers</a></li></ul></div>
+          <div class="foot-col"><h5>Solutions</h5><ul><li><a href="services.html">Software Engineering</a></li><li><a href="services.html">AI &amp; ML</a></li><li><a href="services.html">Cloud &amp; DevOps</a></li><li><a href="services.html">Cybersecurity</a></li></ul></div>
+          <div class="foot-col"><h5>Resources</h5><ul><li><a href="#">Blog</a></li><li><a href="#">Whitepapers</a></li><li><a href="#">Documentation</a></li><li><a href="contactus.html">Support</a></li></ul></div>
+        </div>
+        <div class="foot-bottom">
+          <span>&copy; <span id="year"></span> Rezyumer Technologies. All rights reserved.</span>
+          <span><a href="#">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms of Service</a></span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      const nav = document.getElementById('nav');
+      window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 30));
+      const burger = document.getElementById('burger'), navMenu = document.getElementById('navMenu');
+      burger.addEventListener('click', () => navMenu.classList.toggle('open'));
+      navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMenu.classList.remove('open')));
+
+      const animateCount = el => {
+        const target = +el.dataset.count; const dur = 1800; const start = performance.now();
+        const step = now => {
+          const p = Math.min((now - start) / dur, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.floor(eased * target) + (target >= 100 ? '+' : '');
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      };
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting){
+            e.target.classList.add('in');
+            e.target.querySelectorAll?.('[data-count]').forEach(animateCount);
+            if (e.target.dataset.count) animateCount(e.target);
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: .15 });
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    </script>
+  </body>
+</html>

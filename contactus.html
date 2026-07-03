@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a2540'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='18' font-weight='bold' fill='%2300e5a8' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us — Rezyumer Technologies</title>
+    <meta name="description" content="Get in touch with Rezyumer Technologies. Reach our offices, email, or phone, or send us a project brief — our solution architects respond within one business day." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/lucide-static@latest/font/lucide.css" />
+    <style>
+      :root{
+        --bg:#060b1a; --bg-2:#0a1428; --surface:#0e1b33; --surface-2:#13234a;
+        --border:rgba(255,255,255,.08); --text:#e8eefc; --muted:#9fb0d4;
+        --primary:#00e5a8; --primary-2:#00b4ff; --accent:#ff7a45;
+        --warning:#ffd166; --error:#ff5470; --success:#00e5a8;
+      }
+      *{margin:0;padding:0;box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+      h1,h2,h3,h4{font-family:'Sora','Inter',sans-serif;line-height:1.15}
+      a{color:inherit;text-decoration:none}
+      img{max-width:100%;display:block}
+      .container{width:min(1200px,92%);margin-inline:auto}
+      .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:600;padding:6px 14px;border:1px solid rgba(0,229,168,.25);border-radius:999px;background:rgba(0,229,168,.07)}
+      .section{padding:110px 0;position:relative}
+      .section-head{text-align:center;max-width:720px;margin:0 auto 64px}
+      .section-head h2{font-size:clamp(1.9rem,4vw,2.9rem);margin:20px 0 16px;font-weight:700}
+      .section-head p{color:var(--muted);font-size:1.05rem}
+      .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:10px;font-weight:600;font-size:.96rem;transition:.25s ease;cursor:pointer;border:none;font-family:inherit}
+      .btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#03121b;box-shadow:0 10px 30px -10px rgba(0,229,168,.5)}
+      .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px -10px rgba(0,229,168,.7)}
+      .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+      .btn-ghost:hover{border-color:var(--primary);color:var(--primary)}
+
+      header.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.3s ease;padding:18px 0}
+      header.nav.scrolled{background:rgba(6,11,26,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:12px 0}
+      .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+      .logo{display:flex;align-items:center;gap:10px;font-family:'Sora';font-weight:700;font-size:1.25rem}
+      .logo .mark{width:38px;height:38px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#03121b;font-weight:800;box-shadow:0 6px 20px -6px rgba(0,229,168,.6)}
+      .logo small{display:block;font-size:.62rem;letter-spacing:.25em;color:var(--muted);font-weight:500;text-transform:uppercase}
+      .nav-menu{display:flex;gap:8px;align-items:center}
+      .nav-menu a{padding:9px 16px;border-radius:8px;font-size:.92rem;color:var(--muted);font-weight:500;transition:.2s}
+      .nav-menu a:hover{color:var(--text);background:rgba(255,255,255,.04)}
+      .nav-menu a.active{color:var(--primary)}
+      .nav-cta{display:flex;gap:10px;align-items:center}
+      .burger{display:none;background:none;border:none;color:var(--text);font-size:1.6rem;cursor:pointer}
+
+      .page-hero{position:relative;padding:170px 0 90px;overflow:hidden}
+      .page-hero .bg{position:absolute;inset:0;z-index:-2;background:radial-gradient(900px 600px at 85% 10%,rgba(0,229,168,.14),transparent 60%),radial-gradient(700px 500px at 10% 90%,rgba(0,180,255,.12),transparent 60%),var(--bg)}
+      .page-hero .grid{position:absolute;inset:0;z-index:-1;opacity:.4;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 60% at 50% 40%,#000,transparent)}
+      .page-hero h1{font-size:clamp(2.3rem,5.4vw,3.6rem);font-weight:700;letter-spacing:-.02em;margin:22px 0 18px}
+      .page-hero h1 .grad{background:linear-gradient(135deg,var(--primary),var(--primary-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+      .page-hero p.lead{color:var(--muted);font-size:1.12rem;max-width:620px}
+      .breadcrumb{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:.85rem;margin-top:24px}
+      .breadcrumb a:hover{color:var(--primary)}
+
+      .contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:start}
+      .contact-info h3{font-size:1.8rem;margin-bottom:16px;font-family:'Sora'}
+      .contact-info p{color:var(--muted);margin-bottom:32px}
+      .contact-list{list-style:none;display:flex;flex-direction:column;gap:20px}
+      .contact-list li{display:flex;gap:16px;align-items:flex-start}
+      .contact-list .ci{width:46px;height:46px;border-radius:12px;flex:0 0 auto;display:grid;place-items:center;background:rgba(0,229,168,.1);color:var(--primary);font-size:1.2rem}
+      .contact-list strong{display:block;font-family:'Sora'}
+      .contact-list span{color:var(--muted);font-size:.92rem}
+      .office-card{margin-top:30px;padding:24px;border-radius:14px;background:var(--surface);border:1px solid var(--border)}
+      .office-card h4{font-family:'Sora';margin-bottom:6px}
+      .office-card p{color:var(--muted);font-size:.9rem;margin:0}
+
+      .contact-form{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:38px}
+      .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+      .field{margin-bottom:18px}
+      .field label{display:block;font-size:.85rem;margin-bottom:8px;color:var(--muted);font-weight:500}
+      .field input,.field textarea,.field select{
+        width:100%;padding:13px 15px;border-radius:10px;border:1px solid var(--border);
+        background:var(--bg);color:var(--text);font-family:inherit;font-size:.95rem;transition:.2s;
+      }
+      .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(0,229,168,.12)}
+      .field textarea{resize:vertical;min-height:130px}
+      .budget-chips{display:flex;flex-wrap:wrap;gap:10px}
+      .budget-chips label{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:999px;border:1px solid var(--border);background:var(--bg);color:var(--muted);font-size:.88rem;cursor:pointer;transition:.2s;margin:0}
+      .budget-chips input{display:none}
+      .budget-chips input:checked + span,
+      .budget-chips label:has(input:checked){border-color:var(--primary);color:var(--primary);background:rgba(0,229,168,.08)}
+      .form-msg{padding:14px 16px;border-radius:10px;margin-top:14px;font-size:.92rem;display:none;align-items:center;gap:10px}
+      .form-msg.ok{display:flex;background:rgba(0,229,168,.12);color:var(--primary);border:1px solid rgba(0,229,168,.3)}
+      .form-msg i{font-size:1.2rem}
+
+      .faq{background:var(--bg-2)}
+      .faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+      .faq-item{border:1px solid var(--border);border-radius:14px;background:var(--surface);overflow:hidden;transition:.3s}
+      .faq-item.open{border-color:rgba(0,229,168,.3)}
+      .faq-q{width:100%;padding:20px 24px;background:none;border:none;color:var(--text);font-family:'Sora';font-size:1.02rem;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+      .faq-q .ico{color:var(--primary);transition:transform .3s;flex:0 0 auto}
+      .faq-item.open .faq-q .ico{transform:rotate(45deg)}
+      .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease;padding:0 24px}
+      .faq-item.open .faq-a{max-height:200px;padding:0 24px 22px}
+      .faq-a p{color:var(--muted);font-size:.95rem}
+
+      .map-band{padding:0}
+      .map-band iframe{width:100%;height:380px;border:none;border-top:1px solid var(--border);border-bottom:1px solid var(--border);filter:grayscale(.4) invert(.92) hue-rotate(180deg) contrast(.9)}
+
+      footer{background:var(--bg);border-top:1px solid var(--border);padding:70px 0 28px}
+      .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px}
+      .foot-about p{color:var(--muted);font-size:.92rem;margin:16px 0;max-width:320px}
+      .foot-social{display:flex;gap:12px}
+      .foot-social a{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;border:1px solid var(--border);color:var(--muted);transition:.3s;font-size:1rem}
+      .foot-social a:hover{background:var(--primary);color:#03121b;border-color:var(--primary);transform:translateY(-3px)}
+      .foot-col h5{font-family:'Sora';font-size:1rem;margin-bottom:18px}
+      .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+      .foot-col a{color:var(--muted);font-size:.92rem;transition:.2s}
+      .foot-col a:hover{color:var(--primary);padding-left:4px}
+      .foot-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:.85rem}
+
+      .reveal{opacity:0;transform:translateY(40px);transition:.8s cubic-bezier(.2,.7,.2,1)}
+      .reveal.in{opacity:1;transform:none}
+      [data-delay="1"]{transition-delay:.1s} [data-delay="2"]{transition-delay:.2s} [data-delay="3"]{transition-delay:.3s}
+
+      @media(max-width:980px){
+        .contact-grid{grid-template-columns:1fr}
+        .foot-grid{grid-template-columns:1fr 1fr;gap:32px}
+      }
+      @media(max-width:680px){
+        .nav-menu{position:fixed;top:64px;left:0;right:0;flex-direction:column;align-items:stretch;background:rgba(6,11,26,.97);backdrop-filter:blur(14px);padding:20px;gap:4px;border-bottom:1px solid var(--border);transform:translateY(-130%);transition:.4s}
+        .nav-menu.open{transform:none} .nav-menu a{padding:14px 16px;font-size:1rem}
+        .nav-cta .btn-ghost{display:none} .burger{display:block}
+        .section{padding:80px 0} .form-row{grid-template-columns:1fr}
+        .foot-grid{grid-template-columns:1fr}
+      }
+    </style>
+  </head>
+  <body>
+    <header class="nav" id="nav">
+      <div class="container nav-inner">
+        <a href="index.html" class="logo"><span class="mark">R</span><span>Rezyumer<small>Technologies</small></span></a>
+        <nav class="nav-menu" id="navMenu">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="aboutus.html">About Us</a>
+          <a href="contactus.html" class="active">Contact Us</a>
+        </nav>
+        <div class="nav-cta">
+          <a href="#contact-form" class="btn btn-primary">Send a Brief</a>
+          <button class="burger" id="burger" aria-label="Menu">&#9776;</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="page-hero">
+      <div class="bg"></div><div class="grid"></div>
+      <div class="container reveal">
+        <span class="eyebrow"><i class="lucide lucide-mail"></i> Get in Touch</span>
+        <h1>Let's build something <span class="grad">remarkable</span></h1>
+        <p class="lead">Whether you're scaling a product, modernizing legacy systems, or exploring an AI opportunity — our solution architects will respond within one business day with a tailored next-step plan.</p>
+        <div class="breadcrumb"><a href="index.html">Home</a> <span>/</span> <span>Contact Us</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="contact-form">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <span class="eyebrow"><i class="lucide lucide-message-circle"></i> Contact</span>
+            <h3 style="margin-top:18px">Reach the Rezyumer team</h3>
+            <p>We're happiest when a conversation starts with a real problem. Pick the channel that suits you — or send a brief and we'll take it from there.</p>
+            <ul class="contact-list">
+              <li>
+                <span class="ci"><i class="lucide lucide-map-pin"></i></span>
+                <div><strong>Head Office</strong><span>Innovation Tower, 24 Quartz Avenue, Accra, Ghana</span></div>
+              </li>
+              <li>
+                <span class="ci"><i class="lucide lucide-mail"></i></span>
+                <div><strong>Email</strong><span>hello@rezyumer.tech</span></div>
+              </li>
+              <li>
+                <span class="ci"><i class="lucide lucide-phone"></i></span>
+                <div><strong>Phone</strong><span>+233 (0) 30 123 4567</span></div>
+              </li>
+              <li>
+                <span class="ci"><i class="lucide lucide-clock"></i></span>
+                <div><strong>Working Hours</strong><span>Mon–Fri, 8:00 AM – 6:00 PM GMT</span></div>
+              </li>
+            </ul>
+            <div class="office-card">
+              <h4>Regional Office — Berlin</h4>
+              <p>Friedrichstraße 68, 10117 Berlin, Germany &middot; +49 30 9876 5432</p>
+            </div>
+          </div>
+
+          <form class="contact-form reveal" data-delay="1" id="contactForm">
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Full Name</label>
+                <input id="name" name="name" type="text" placeholder="Jane Doe" required />
+              </div>
+              <div class="field">
+                <label for="email">Email Address</label>
+                <input id="email" name="email" type="email" placeholder="jane@company.com" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="company">Company</label>
+                <input id="company" name="company" type="text" placeholder="Company name" />
+              </div>
+              <div class="field">
+                <label for="phone">Phone (optional)</label>
+                <input id="phone" name="phone" type="tel" placeholder="+1 555 000 1234" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="service">Service of Interest</label>
+              <select id="service" name="service">
+                <option>Custom Software Engineering</option>
+                <option>AI &amp; Machine Learning</option>
+                <option>Cloud &amp; DevOps</option>
+                <option>Cybersecurity</option>
+                <option>Mobile Experience</option>
+                <option>Data &amp; Analytics</option>
+                <option>Not sure yet — help me decide</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Estimated Budget</label>
+              <div class="budget-chips" id="budgetChips">
+                <label><input type="radio" name="budget" value="under-10k" /><span>&lt; $10k</span></label>
+                <label><input type="radio" name="budget" value="10-50k" checked /><span>$10k–$50k</span></label>
+                <label><input type="radio" name="budget" value="50-150k" /><span>$50k–$150k</span></label>
+                <label><input type="radio" name="budget" value="150k-plus" /><span>$150k+</span></label>
+              </div>
+            </div>
+            <div class="field">
+              <label for="message">Project Details</label>
+              <textarea id="message" name="message" placeholder="Tell us about your goals, timeline, and any constraints we should know about..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Send Message <i class="lucide lucide-send"></i></button>
+            <div class="form-msg ok" id="formMsg"><i class="lucide lucide-check-circle"></i><span>Thanks! Your brief has been received — our team will reply within one business day.</span></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow"><i class="lucide lucide-help-circle"></i> FAQ</span>
+          <h2>Frequently asked questions</h2>
+          <p>Quick answers to the questions we hear most before an engagement begins.</p>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item reveal">
+            <button class="faq-q">How quickly can we start a project? <i class="lucide lucide-plus ico"></i></button>
+            <div class="faq-a"><p>For most engagements we kick off within 1–2 weeks of signing. During discovery we assemble the right team, confirm scope, and set up your communication channels — so build sprints can begin immediately after.</p></div>
+          </div>
+          <div class="faq-item reveal" data-delay="1">
+            <button class="faq-q">What's the typical engagement model? <i class="lucide lucide-plus ico"></i></button>
+            <div class="faq-a"><p>We offer fixed-scope projects for well-defined work and dedicated cross-functional teams for ongoing programs. Most clients start with a 2–4 week discovery sprint before moving into a recurring build cadence.</p></div>
+          </div>
+          <div class="faq-item reveal" data-delay="2">
+            <button class="faq-q">Do you work with early-stage startups? <i class="lucide lucide-plus ico"></i></button>
+            <div class="faq-a"><p>Absolutely. We've helped founders launch from zero to App Store, and we offer flexible arrangements for pre-revenue teams — including equity-blended models for the right fit.</p></div>
+          </div>
+          <div class="faq-item reveal" data-delay="3">
+            <button class="faq-q">How do you handle data security and IP? <i class="lucide lucide-plus ico"></i></button>
+            <div class="faq-a"><p>All work is covered by mutual NDAs, and IP transfers to you on payment. We're SOC 2-aligned, follow zero-trust practices internally, and can sign client-specific security addenda as needed.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="map-band">
+      <iframe
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-0.19%2C5.54%2C-0.17%2C5.57&amp;layer=mapnik&amp;marker=5.555%2C-0.18"
+        loading="lazy"
+        title="Rezyumer Technologies office location"></iframe>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="foot-grid">
+          <div class="foot-about">
+            <a href="index.html" class="logo"><span class="mark">R</span><span>Rezyumer<small>Technologies</small></span></a>
+            <p>We engineer intelligent software, cloud platforms, and AI systems that help ambitious organizations scale with confidence.</p>
+            <div class="foot-social">
+              <a href="#" aria-label="LinkedIn"><i class="lucide lucide-linkedin"></i></a>
+              <a href="#" aria-label="Twitter"><i class="lucide lucide-twitter"></i></a>
+              <a href="#" aria-label="GitHub"><i class="lucide lucide-github"></i></a>
+              <a href="#" aria-label="YouTube"><i class="lucide lucide-youtube"></i></a>
+            </div>
+          </div>
+          <div class="foot-col"><h5>Company</h5><ul><li><a href="aboutus.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="index.html#stories">Case Studies</a></li><li><a href="contactus.html">Careers</a></li></ul></div>
+          <div class="foot-col"><h5>Solutions</h5><ul><li><a href="services.html">Software Engineering</a></li><li><a href="services.html">AI &amp; ML</a></li><li><a href="services.html">Cloud &amp; DevOps</a></li><li><a href="services.html">Cybersecurity</a></li></ul></div>
+          <div class="foot-col"><h5>Resources</h5><ul><li><a href="#">Blog</a></li><li><a href="#">Whitepapers</a></li><li><a href="#">Documentation</a></li><li><a href="contactus.html">Support</a></li></ul></div>
+        </div>
+        <div class="foot-bottom">
+          <span>&copy; <span id="year"></span> Rezyumer Technologies. All rights reserved.</span>
+          <span><a href="#">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms of Service</a></span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      const nav = document.getElementById('nav');
+      window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 30));
+      const burger = document.getElementById('burger'), navMenu = document.getElementById('navMenu');
+      burger.addEventListener('click', () => navMenu.classList.toggle('open'));
+      navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMenu.classList.remove('open')));
+
+      // FAQ accordion
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.querySelector('.faq-q').addEventListener('click', () => {
+          const isOpen = item.classList.contains('open');
+          document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+          if (!isOpen) item.classList.add('open');
+        });
+      });
+
+      // Budget chip visual sync (radio already handles selection)
+      document.querySelectorAll('#budgetChips label').forEach(lbl => {
+        lbl.addEventListener('click', () => {
+          document.querySelectorAll('#budgetChips label').forEach(l => l.style.borderColor = '');
+          lbl.style.borderColor = 'var(--primary)';
+          lbl.style.color = 'var(--primary)';
+        });
+      });
+
+      // Reveal on scroll
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: .15 });
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+      // Contact form
+      document.getElementById('contactForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const msg = document.getElementById('formMsg');
+        msg.style.display = 'flex';
+        e.target.reset();
+        setTimeout(() => msg.style.display = 'none', 7000);
+      });
+    </script>
+  </body>
+</html>
